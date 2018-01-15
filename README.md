@@ -54,13 +54,13 @@ Shadowsocksr-libev for OpenWrt/LEDE
    cd OpenWrt-SDK-ar71xx-*
    # 安装 feeds
    # 方案一(推荐):使用自定义feeds
-     git clone https://github.com/AlexZhuo/openwrt-feeds.git package/feeds
+     git clone https://github.com/starP-W/openwrt-feeds.git package/feeds
    # 方案二:使用官方feeds
      ./scripts/feeds update base packages
      ./scripts/feeds install zlib libopenssl libpolarssl libmbedtls libpcre
      rm -rf package/feeds/base/mbedtls/patches
    # 获取 shadowsocksr-libev Makefile
-   git clone https://github.com/AlexZhuo/openwrt-shadowsocksr.git package/shadowsocksr-libev
+   git clone https://github.com/starP-W/openwrt-shadowsocksr.git package/shadowsocksr-libev
    # 选择要编译的包 Network -> shadowsocksr-libev
    make menuconfig
    # 开始编译
@@ -80,14 +80,14 @@ Shadowsocksr-libev for OpenWrt/LEDE
 
 错误原因：SDK没有找到PolarSSl的feed
 
-解决方法：git clone https://github.com/AlexZhuo/openwrt-feeds.git package/feeds
+解决方法：git clone https://github.com/starP-W/openwrt-feeds.git package/feeds
 
 
 3、报错`configure: error: "zlib header files not found."`
 
 错误原因：SDK没有找到libopenssl和zlib的feed，该问题会出现在LEDE rc1的SDK中，使用17.01.0 SDK不会有这个问题
 
-解决方法：git clone https://github.com/AlexZhuo/openwrt-feeds.git package/feeds
+解决方法：git clone https://github.com/starP-W/openwrt-feeds.git package/feeds
 
 
 4、报错
@@ -99,7 +99,7 @@ configure: error: Cannot find pcre library. Configure --with-pcre=DIR
 ```
 报错原因：SDK没有找到pcre的feed
 
-解决方法：git clone https://github.com/AlexZhuo/openwrt-feeds.git package/feeds或者
+解决方法：git clone https://github.com/starP-W/openwrt-feeds.git package/feeds或者
 
 ./scripts/feeds update base packages
 
@@ -135,7 +135,7 @@ src-git telephony https://git.lede-project.org/feed/telephony.git^1f0fb2538ba6fc
 ```
 或
 
-git clone https://github.com/AlexZhuo/openwrt-feeds.git package/feeds
+git clone https://github.com/starP-W/openwrt-feeds.git package/feeds
 
 
 6、报错
@@ -145,7 +145,7 @@ configure: error: PolarSSL libraries not found.
 ```
 报错原因：官方源缺少PolarSSl依赖
 
-解决方法：复制https://github.com/AlexZhuo/openwrt-feeds/tree/master/base/ 中polarssl文件夹到SDK根目录/package/feeds/base
+解决方法：复制https://github.com/starP-W/openwrt-feeds/tree/master/base/ 中polarssl文件夹到SDK根目录/package/feeds/base
 
 7、报错
 ```
@@ -153,7 +153,7 @@ checking whether mbedtls supports the Camellia block cipher or not... configure:
 ```
 报错原因：官方源mbedtls版本太高,应该使用2.4.0
 
-解决方法：复制https://github.com/AlexZhuo/openwrt-feeds/tree/master/base 中mbedtls文件夹替换SDK根目录/package/feeds/base/mbedtls
+解决方法：复制https://github.com/starP-W/openwrt-feeds/tree/master/base 中mbedtls文件夹替换SDK根目录/package/feeds/base/mbedtls
 
 
 
@@ -190,4 +190,4 @@ checking whether mbedtls supports the Camellia block cipher or not... configure:
   [M]: https://www.multipath-tcp.org/
   [N]: https://github.com/breakwa11/shadowsocks-rss/blob/master/ssr.md
   [O]: http://www.right.com.cn/forum/thread-198649-1-1.html
-  [P]: https://github.com/AlexZhuo/luci-app-shadowsocksR
+  [P]: https://github.com/starP-W/luci-app-shadowsocksR
