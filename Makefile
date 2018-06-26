@@ -35,27 +35,17 @@ define Package/shadowsocksr-libev
 endef
 
 
-define Package/shadowsocksr-libev-mbedtls
-  $(call Package/shadowsocksr-libev/Default)
-  TITLE+= (mbedTLS)
-  VARIANT:=mbedtls
-  DEPENDS:=+libpthread +libpcre +libmbedtls
-endef
-
 
 define Package/shadowsocksr-libev/description
 ShadowsocksR-libev is a lightweight secured socks5 proxy for embedded devices and low end boxes.
 endef
 
 
-Package/shadowsocksr-libev-mbedtls/description=$(Package/shadowsocksr-libev/description)
 
 define Package/shadowsocksr-libev/conffiles
 /etc/shadowsocksr.json
 endef
 
-Package/shadowsocksr-libev-polarssl/conffiles = $(Package/shadowsocksr-libev/conffiles)
-Package/shadowsocksr-libev-mbedtls/conffiles = $(Package/shadowsocksr-libev/conffiles)
 
 define Package/shadowsocksr-libev-server/conffiles
 /etc/shadowsocksr-server.json
@@ -83,10 +73,6 @@ define Package/shadowsocksr-libev/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/ss-redir $(1)/usr/bin/ssrr-redir
 endef
 
-Package/shadowsocksr-libev-polarssl/install=$(Package/shadowsocksr-libev/install)
-Package/shadowsocksr-libev-mbedtls/install=$(Package/shadowsocksr-libev/install)
 
-Package/shadowsocksr-libev-server-mbedtls/install=$(Package/shadowsocksr-libev-server/install)
 
 $(eval $(call BuildPackage,shadowsocksr-libev))
-$(eval $(call BuildPackage,shadowsocksr-libev-mbedtls))
