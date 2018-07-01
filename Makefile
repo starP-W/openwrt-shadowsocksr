@@ -20,15 +20,15 @@ PKG_BUILD_PARALLEL:=1
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/shadowsocksr-libev/Default
+define Package/ssr-libev-alex/Default
   SECTION:=net
-  CATEGORY:=Network
+  CATEGORY:=Alex
   TITLE:=Lightweight Secured Socks5 Proxy
   URL:=https://github.com/shadowsocksr/shadowsocksr-libev
 endef
 
-define Package/shadowsocksr-libev
-  $(call Package/shadowsocksr-libev/Default)
+define Package/ssr-libev-alex
+  $(call Package/ssr-libev-alex/Default)
   TITLE+= (OpenSSL)
   VARIANT:=openssl
   DEPENDS:=+libopenssl +libpcre +libpthread +zlib
@@ -36,22 +36,16 @@ endef
 
 
 
-define Package/shadowsocksr-libev/description
+define Package/ssr-libev-alex/description
 ShadowsocksR-libev is a lightweight secured socks5 proxy for embedded devices and low end boxes.
 endef
 
 
 
-define Package/shadowsocksr-libev/conffiles
+define Package/ssr-libev-alex/conffiles
 /etc/shadowsocksr.json
 endef
 
-
-define Package/shadowsocksr-libev-server/conffiles
-/etc/shadowsocksr-server.json
-endef
-
-Package/shadowsocksr-libev-server-mbedtls/conffiles = $(Package/shadowsocksr-libev-server/conffiles)
 
 
 CONFIGURE_ARGS += --disable-ssp --disable-documentation --disable-assert 
@@ -64,7 +58,7 @@ ifeq ($(BUILD_VARIANT),mbedtls)
 	CONFIGURE_ARGS += --with-crypto-library=mbedtls
 endif
 
-define Package/shadowsocksr-libev/install
+define Package/ssr-libev-alex/install
 	$(INSTALL_DIR) $(1)/etc/init.d
 	#$(INSTALL_BIN) ./files/shadowsocksr $(1)/etc/init.d/shadowsocksr
 	$(INSTALL_CONF) ./files/shadowsocksr.json $(1)/etc/shadowsocksr.json
@@ -75,4 +69,4 @@ endef
 
 
 
-$(eval $(call BuildPackage,shadowsocksr-libev))
+$(eval $(call BuildPackage,ssr-libev-alex))
