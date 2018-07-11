@@ -61,7 +61,9 @@ Shadowsocksr-libev for OpenWrt/LEDE
      rm -rf package/feeds/base/mbedtls/patches
    # 获取 shadowsocksr-libev Makefile
    git clone https://github.com/starP-W/openwrt-shadowsocksr.git package/shadowsocksr-libev
-   # 选择要编译的包 Network -> shadowsocksr-libev
+   # 或者使用未经过实际测试的dev版
+   git clone -b dev https://github.com/starP-W/openwrt-shadowsocksr.git package/shadowsocksr-libev
+   # 选择要编译的包 Alex -> shadowsocksr-libev
    make menuconfig
    # 开始编译
    make package/shadowsocksr-libev/compile V=99
